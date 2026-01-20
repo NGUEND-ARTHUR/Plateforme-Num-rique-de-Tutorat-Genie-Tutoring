@@ -1,0 +1,29 @@
+{
+  "app": {
+    "title": "Genie Tutoring",
+    "welcome": "Bienvenue sur Genie Tutoring !",
+    "howItWorks": "Comment ça marche",
+    "advantages": "Avantages",
+    "testimonials": "Témoignages",
+    "footer": {
+      "contact": "Contact",
+      "info": "Informations",
+      "language": "Langue"
+    }
+  },
+  "role": {
+    "parent": "Je suis Parent",
+    "student": "Je suis Élève",
+    "tutor": "Je suis Tuteur",
+    "admin": "Je suis Administrateur"
+  },
+  "login": {
+    "title": "Connexion",
+    "email": "Email",
+    "password": "Mot de passe",
+    "submit": "Se connecter"
+  },
+  "dashboard": {
+    "welcome": "Bienvenue, {{role}} !"
+  }
+}
