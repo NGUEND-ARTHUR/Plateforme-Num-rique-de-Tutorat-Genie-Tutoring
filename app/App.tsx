@@ -1,49 +1,49 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AppProvider, useApp } from '@/app/contexts/AppContext';
+import { AppProvider, useApp } from '@/contexts/AppContext';
 
 // Pages
-import LandingPage from '@/app/pages/LandingPage';
-import AuthPage from '@/app/pages/AuthPage';
-import DashboardLayout from '@/app/components/DashboardLayout';
+import LandingPage from '@/pages/LandingPage';
+import AuthPage from '@/pages/AuthPage';
+import DashboardLayout from '@/components/DashboardLayout';
 
 // Parent Pages
-import ParentDashboard from '@/app/pages/parent/Dashboard';
-import MyChildren from '@/app/pages/parent/MyChildren';
-import FindTutor from '@/app/pages/parent/FindTutor';
-import ScheduleCourse from '@/app/pages/parent/ScheduleCourse';
-import ParentCourses from '@/app/pages/parent/Courses';
-import ParentReports from '@/app/pages/parent/Reports';
-import ParentMessages from '@/app/pages/parent/Messages';
-import ParentSettings from '@/app/pages/parent/Settings';
+import ParentDashboard from '@/pages/parent/Dashboard';
+import MyChildren from '@/pages/parent/MyChildren';
+import FindTutor from '@/pages/parent/FindTutor';
+import ScheduleCourse from '@/pages/parent/ScheduleCourse';
+import ParentCourses from '@/pages/parent/Courses';
+import ParentReports from '@/pages/parent/Reports';
+import ParentMessages from '@/pages/parent/Messages';
+import ParentSettings from '@/pages/parent/Settings';
 
 // Student Pages
-import StudentDashboard from '@/app/pages/student/Dashboard';
-import StudentCourses from '@/app/pages/student/Courses';
-import VirtualClassroom from '@/app/pages/student/VirtualClassroom';
-import Objectives from '@/app/pages/student/Objectives';
-import Grades from '@/app/pages/student/Grades';
-import StudentMessages from '@/app/pages/student/Messages';
-import StudentSettings from '@/app/pages/student/Settings';
+import StudentDashboard from '@/pages/student/Dashboard';
+import StudentCourses from '@/pages/student/Courses';
+import VirtualClassroom from '@/pages/student/VirtualClassroom';
+import Objectives from '@/pages/student/Objectives';
+import Grades from '@/pages/student/Grades';
+import StudentMessages from '@/pages/student/Messages';
+import StudentSettings from '@/pages/student/Settings';
 
 // Tutor Pages
-import TutorDashboard from '@/app/pages/tutor/Dashboard';
-import MyStudents from '@/app/pages/tutor/MyStudents';
-import TutorCourses from '@/app/pages/tutor/Courses';
-import TutorClassroom from '@/app/pages/tutor/VirtualClassroom';
-import PedagogicalTracking from '@/app/pages/tutor/PedagogicalTracking';
-import TutorReports from '@/app/pages/tutor/Reports';
-import TutorMessages from '@/app/pages/tutor/Messages';
-import TutorProfile from '@/app/pages/tutor/Profile';
+import TutorDashboard from '@/pages/tutor/Dashboard';
+import MyStudents from '@/pages/tutor/MyStudents';
+import TutorCourses from '@/pages/tutor/Courses';
+import TutorClassroom from '@/pages/tutor/VirtualClassroom';
+import PedagogicalTracking from '@/pages/tutor/PedagogicalTracking';
+import TutorReports from '@/pages/tutor/Reports';
+import TutorMessages from '@/pages/tutor/Messages';
+import TutorProfile from '@/pages/tutor/Profile';
 
 // Admin Pages
-import AdminDashboard from '@/app/pages/admin/Dashboard';
-import Users from '@/app/pages/admin/Users';
-import TutorValidation from '@/app/pages/admin/TutorValidation';
-import StudentsParents from '@/app/pages/admin/StudentsParents';
-import ClassesSubjects from '@/app/pages/admin/ClassesSubjects';
-import AdminCourses from '@/app/pages/admin/Courses';
-import AdminReports from '@/app/pages/admin/Reports';
-import SystemSettings from '@/app/pages/admin/SystemSettings';
+import AdminDashboard from '@/pages/admin/Dashboard';
+import Users from '@/pages/admin/Users';
+import TutorValidation from '@/pages/admin/TutorValidation';
+import StudentsParents from '@/pages/admin/StudentsParents';
+import ClassesSubjects from '@/pages/admin/ClassesSubjects';
+import AdminCourses from '@/pages/admin/Courses';
+import AdminReports from '@/pages/admin/Reports';
+import SystemSettings from '@/pages/admin/SystemSettings';
 
 function ProtectedRoute({ children, allowedRoles }: { children: React.ReactNode; allowedRoles: string[] }) {
   const { currentUser } = useApp();

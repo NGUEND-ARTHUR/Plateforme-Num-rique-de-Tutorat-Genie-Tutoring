@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { useApp } from '@/app/contexts/AppContext';
-import { Button } from '@/app/components/ui/button';
-import { Card, CardContent } from '@/app/components/ui/card';
+import { useApp } from '@/contexts/AppContext';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { GraduationCap, Users, Video, BarChart3, MessageSquare, Languages, Moon, Sun } from 'lucide-react';
 
 export default function LandingPage() {
