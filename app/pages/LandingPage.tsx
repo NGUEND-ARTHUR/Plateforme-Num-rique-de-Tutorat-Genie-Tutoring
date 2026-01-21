@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useApp } from '@/contexts/AppContext';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
@@ -55,22 +55,30 @@ export default function LandingPage() {
             {t('landing.hero.subtitle')}
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700" onClick={() => navigate('/register?role=parent')}>
-              <Users className="mr-2 size-5" />
-              {t('landing.cta.parent')}
-            </Button>
-            <Button size="lg" variant="outline" onClick={() => navigate('/login?role=student')}>
-              <GraduationCap className="mr-2 size-5" />
-              {t('landing.cta.student')}
-            </Button>
-            <Button size="lg" variant="outline" onClick={() => navigate('/register?role=tutor')}>
-              <GraduationCap className="mr-2 size-5" />
-              {t('landing.cta.tutor')}
-            </Button>
-            <Button size="lg" variant="outline" onClick={() => navigate('/login?role=admin')}>
-              <GraduationCap className="mr-2 size-5" />
-              {t('landing.cta.admin')}
-            </Button>
+            <Link to="/register?role=parent">
+              <Button size="lg" className="bg-indigo-600 hover:bg-indigo-700">
+                <Users className="mr-2 size-5" />
+                {t('landing.cta.parent')}
+              </Button>
+            </Link>
+            <Link to="/login?role=student">
+              <Button size="lg" variant="outline">
+                <GraduationCap className="mr-2 size-5" />
+                {t('landing.cta.student')}
+              </Button>
+            </Link>
+            <Link to="/register?role=tutor">
+              <Button size="lg" variant="outline">
+                <GraduationCap className="mr-2 size-5" />
+                {t('landing.cta.tutor')}
+              </Button>
+            </Link>
+            <Link to="/login?role=admin">
+              <Button size="lg" variant="outline">
+                <GraduationCap className="mr-2 size-5" />
+                {t('landing.cta.admin')}
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
