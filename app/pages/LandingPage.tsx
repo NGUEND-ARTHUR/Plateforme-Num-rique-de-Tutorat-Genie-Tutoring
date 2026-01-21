@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '@/contexts/AppContext';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { GraduationCap, Users, Video, BarChart3, MessageSquare, Languages, Moon, Sun } from 'lucide-react';
 
 export default function LandingPage() {
-  const { t, language, setLanguage, theme, setTheme } = useApp();
+  const { theme, setTheme } = useApp();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
 
   return (
@@ -21,10 +23,10 @@ export default function LandingPage() {
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => setLanguage(language === 'fr' ? 'en' : 'fr')}
+              onClick={() => i18n.changeLanguage(i18n.language === 'fr' ? 'en' : 'fr')}
             >
               <Languages className="size-5 mr-2" />
-              {language.toUpperCase()}
+              {i18n.language.toUpperCase()}
             </Button>
             <Button
               variant="ghost"
@@ -57,9 +59,17 @@ export default function LandingPage() {
               <Users className="mr-2 size-5" />
               {t('landing.cta.parent')}
             </Button>
+            <Button size="lg" variant="outline" onClick={() => navigate('/login?role=student')}>
+              <GraduationCap className="mr-2 size-5" />
+              {t('landing.cta.student')}
+            </Button>
             <Button size="lg" variant="outline" onClick={() => navigate('/register?role=tutor')}>
               <GraduationCap className="mr-2 size-5" />
               {t('landing.cta.tutor')}
+            </Button>
+            <Button size="lg" variant="outline" onClick={() => navigate('/login?role=admin')}>
+              <GraduationCap className="mr-2 size-5" />
+              {t('landing.cta.admin')}
             </Button>
           </div>
         </div>
@@ -72,29 +82,54 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <FeatureCard 
               icon={Video} 
-              title={language === 'fr' ? 'Classe Virtuelle' : 'Virtual Classroom'} 
-              description={language === 'fr' ? 'Cours en direct avec partage d\'écran et tableau blanc' : 'Live courses with screen sharing and whiteboard'} 
+              title={t('features.virtualClassroom.title')} 
+              description={t('features.virtualClassroom.desc')} 
             />
             <FeatureCard 
               icon={BarChart3} 
-              title={language === 'fr' ? 'Suivi Pédagogique' : 'Pedagogical Tracking'} 
-              description={language === 'fr' ? 'Objectifs, notes et rapports détaillés' : 'Objectives, grades and detailed reports'} 
+              title={t('features.pedagogicalTracking.title')} 
+              description={t('features.pedagogicalTracking.desc')} 
             />
             <FeatureCard 
               icon={MessageSquare} 
-              title="Communication" 
-              description={language === 'fr' ? 'Messagerie directe avec les tuteurs' : 'Direct messaging with tutors'} 
+              title={t('features.communication.title')} 
+              description={t('features.communication.desc')} 
             />
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t py-8 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4 text-center text-gray-600 dark:text-gray-400">
-          <p>© 2026 Genie Tutoring. {language === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}</p>
+      {/* Advertisement / Offers Section */}
+      <section className="py-16 bg-indigo-50 dark:bg-gray-800">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">{t('landing.offers.title', 'Our Offers')}</h2>
+          {/* Replace the mockOffers array with dynamic data from admin in the future */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {[{
+              title: t('offers.starter.title', 'Starter Pack'),
+              desc: t('offers.starter.desc', 'Perfect for new students. Includes 2 free trial sessions.'),
+              price: '0€',
+            }, {
+              title: t('offers.standard.title', 'Standard Plan'),
+              desc: t('offers.standard.desc', 'Weekly online classes, progress tracking, and parent reports.'),
+              price: '49€/mois',
+            }, {
+              title: t('offers.premium.title', 'Premium Plan'),
+              desc: t('offers.premium.desc', 'Unlimited classes, dedicated tutor, and advanced analytics.'),
+              price: '99€/mois',
+            }].map((offer, idx) => (
+              <div key={idx} className="bg-white dark:bg-gray-900 rounded-lg shadow p-8 flex flex-col items-center text-center">
+                <h3 className="font-bold text-xl mb-2">{offer.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{offer.desc}</p>
+                <div className="text-3xl font-bold text-indigo-600 mb-4">{offer.price}</div>
+                <Button size="lg" className="w-full max-w-xs">{t('landing.offers.cta', 'Get Started')}</Button>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-gray-500 dark:text-gray-400 mt-8 text-sm">{t('landing.offers.note', 'Offers are managed by the admin and may change at any time.')}</p>
         </div>
-      </footer>
+      </section>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams, useLocation } from 'react-router-dom';
 import { useApp } from '@/contexts/AppContext';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -31,11 +32,29 @@ const ROLE_CONFIG = {
   },
 };
 
-export default function AuthPage({ type }: { type: 'login' | 'register' }) {
-  const { t, login } = useApp();
+export default function AuthPage(props) {
+    // Helper for sign up link
+    const signUpLink = (
+      <span>
+        {t('auth.noAccount')}{' '}
+        <Button
+          variant="link"
+          className="p-0 h-auto"
+          onClick={() => navigate('/register')}
+        >
+          {t('auth.signUp')}
+        </Button>
+      </span>
+    );
+  const { login } = useApp();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const location = useLocation();
+  const type = location.pathname.includes('/register') ? 'register' : 'login';
   const [selectedRole, setSelectedRole] = useState<UserRole>((searchParams.get('role') as UserRole) || 'parent');
+  // If admin is selected and type is register, force type to login
+  const isAdmin = selectedRole === 'admin';
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -112,7 +131,7 @@ export default function AuthPage({ type }: { type: 'login' | 'register' }) {
             </div>
 
             {/* Form Fields */}
-            {type === 'register' && (
+            {type === 'register' && !isAdmin && (
               <div className="space-y-2">
                 <Label htmlFor="name">{t('auth.name')}</Label>
                 <Input
@@ -123,6 +142,12 @@ export default function AuthPage({ type }: { type: 'login' | 'register' }) {
                   onChange={handleChange}
                   required
                 />
+              </div>
+            )}
+            {/* If admin and register, show info */}
+            {type === 'register' && isAdmin && (
+              <div className="text-center text-red-500 font-medium py-2">
+                {t('auth.adminLoginOnly', 'Les administrateurs ne peuvent que se connecter.')} 
               </div>
             )}
 
@@ -194,29 +219,20 @@ export default function AuthPage({ type }: { type: 'login' | 'register' }) {
             )}
 
             <div className="text-center text-sm">
-              {type === 'login' ? (
-                <span>
-                  {t('auth.noAccount')}{' '}
-                  <Button
-                    variant="link"
-                    className="p-0 h-auto"
-                    onClick={() => navigate('/register')}
-                  >
-                    {t('auth.signUp')}
-                  </Button>
-                </span>
-              ) : (
-                <span>
-                  {t('auth.hasAccount')}{' '}
-                  <Button
-                    variant="link"
-                    className="p-0 h-auto"
-                    onClick={() => navigate('/login')}
-                  >
-                    {t('auth.signIn')}
-                  </Button>
-                </span>
-              )}
+              {type === 'login'
+                ? (!isAdmin ? signUpLink : null)
+                : (
+                  <span>
+                    {t('auth.hasAccount')}{' '}
+                    <Button
+                      variant="link"
+                      className="p-0 h-auto"
+                      onClick={() => navigate('/login')}
+                    >
+                      {t('auth.signIn')}
+                    </Button>
+                  </span>
+                )}
             </div>
           </form>
         </CardContent>

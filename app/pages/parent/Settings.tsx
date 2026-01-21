@@ -1,16 +1,6 @@
-import { useApp } from '@/contexts/AppContext';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Switch } from '@/components/ui/switch';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Separator } from '@/components/ui/separator';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { User, Bell, Lock, Globe } from 'lucide-react';
-
 export default function ParentSettings() {
-  const { t, language, setLanguage, theme, setTheme, currentUser } = useApp();
+  const { theme, setTheme, currentUser } = useApp();
+  const { t, i18n } = useTranslation();
 
   return (
     <div className="space-y-6 max-w-4xl">
@@ -31,11 +21,11 @@ export default function ParentSettings() {
           </TabsTrigger>
           <TabsTrigger value="security">
             <Lock className="mr-2 size-4" />
-            Sécurité
+            {t('settings.security') || 'Sécurité'}
           </TabsTrigger>
           <TabsTrigger value="preferences">
             <Globe className="mr-2 size-4" />
-            Préférences
+            {t('settings.preferences') || 'Préférences'}
           </TabsTrigger>
         </TabsList>
 

@@ -1,3 +1,6 @@
+import AdminUserManagement from '@/pages/admin/AdminUserManagement';
+import AdminClassSubjectManagement from '@/pages/admin/AdminClassSubjectManagement';
+import UserSettings from '@/pages/UserSettings';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider, useApp } from '@/contexts/AppContext';
 

@@ -1,103 +1,59 @@
-import { useApp } from '@/contexts/AppContext';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Progress } from '@/components/ui/progress';
-import { Users, Calendar, TrendingUp, Clock, BookOpen, Video } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-
-const mockStudents = [
-	{ id: '1', name: 'Sophie Martin', class: 'CE1', section: 'Francophone', averageGrade: 85 },
-	{ id: '2', name: 'Lucas Dubois', class: 'CE2', section: 'Francophone', averageGrade: 78 },
-];
-
-const mockCourses = [
-	{ id: 'c1', studentName: 'Sophie Martin', tutorName: 'Marie Lambert', subject: 'Mathématiques', date: '2026-01-16', time: '14:00' },
-	{ id: 'c2', studentName: 'Lucas Dubois', tutorName: 'Jean Dupont', subject: 'Français', date: '2026-01-17', time: '16:00' },
-];
-
-const progressData = [
-	{ month: 'Sep', value: 70 },
-	{ month: 'Oct', value: 75 },
-	{ month: 'Nov', value: 78 },
-	{ month: 'Dec', value: 82 },
-	{ month: 'Jan', value: 85 },
-];
-
-function StatCard({ icon: Icon, label, value, color }: { icon: any; label: string; value: string; color: string }) {
-	return (
-		<Card>
-			<CardContent className="pt-6">
-				<div className="flex items-center justify-between">
-					<div>
-						<p className="text-sm text-gray-600 dark:text-gray-400 mb-1">{label}</p>
-						<p className="text-2xl font-bold">{value}</p>
-					</div>
-					<div className={`p-3 ${color} rounded-lg`}>
-						<Icon className="size-6 text-white" />
-					</div>
-				</div>
-			</CardContent>
-		</Card>
-	);
-}
-
-export default function ParentDashboard() {
-	const { t } = useApp();
-
+export default function Dashboard() {
+	const { t } = useTranslation();
 	return (
 		<div className="space-y-6">
 			<div>
-				<h2 className="text-2xl font-semibold mb-1">{t('nav.dashboard')}</h2>
+				<h2 className="text-2xl font-semibold mb-1">{t('dashboard.welcome')}</h2>
 				<p className="text-gray-600 dark:text-gray-400">{t('dashboard.overview')}</p>
 			</div>
-
-			{/* Stats Cards */}
-			<div className="grid gap-4 md:grid-cols-4">
-				<StatCard icon={Users} label={t('nav.myChildren')} value="2" color="bg-blue-500" />
-				<StatCard icon={Calendar} label={t('dashboard.upcomingCourses')} value="4" color="bg-green-500" />
-				<StatCard icon={TrendingUp} label="Moyenne générale" value="81.5%" color="bg-purple-500" />
-				<StatCard icon={Clock} label="Heures ce mois" value="12h" color="bg-orange-500" />
+			<div className="grid gap-4 md:grid-cols-3">
+				<StatCard icon={BookOpen} label="Cours cette semaine" value="3" color="bg-blue-500" />
+				<StatCard icon={Target} label={t('nav.objectives') + ' atteints'} value="7/10" color="bg-green-500" />
+				<StatCard icon={Award} label="Moyenne" value="85%" color="bg-purple-500" />
 			</div>
-
-			{/* Main Content Grid */}
 			<div className="grid gap-6 md:grid-cols-2">
-				{/* Children Cards */}
 				<Card>
 					<CardHeader>
 						<CardTitle>{t('nav.myChildren')}</CardTitle>
 					</CardHeader>
 					<CardContent className="space-y-4">
-						{mockStudents.map((student) => (
-							<div key={student.id} className="flex items-center justify-between p-4 border rounded-lg">
-								<div className="flex items-center gap-3">
-									<Avatar>
-										<AvatarFallback>{student.name.substring(0, 2)}</AvatarFallback>
-									</Avatar>
-									<div>
-										<p className="font-medium">{student.name}</p>
-										<p className="text-sm text-gray-600 dark:text-gray-400">
-											{student.class} - {student.section}
-										</p>
+						{mockStudents.length === 0 ? (
+							<div className="text-center text-gray-500 py-8">{t('empty.noChildren', 'No children found.')}</div>
+						) : (
+							<>
+								{mockStudents.map((student) => (
+									<div key={student.id} className="flex items-center justify-between p-4 border rounded-lg">
+										<div className="flex items-center gap-3">
+											<Avatar>
+												<AvatarFallback>{student.name.substring(0, 2)}</AvatarFallback>
+											</Avatar>
+											<div>
+												<p className="font-medium">{student.name}</p>
+												<p className="text-sm text-gray-600 dark:text-gray-400">
+													{student.class} - {student.section}
+												</p>
+											</div>
+										</div>
+										<div className="text-right">
+											<p className="text-2xl font-semibold text-indigo-600">{student.averageGrade}%</p>
+											<p className="text-xs text-gray-600 dark:text-gray-400">Moyenne</p>
+										</div>
 									</div>
-								</div>
-								<div className="text-right">
-									<p className="text-2xl font-semibold text-indigo-600">{student.averageGrade}%</p>
-									<p className="text-xs text-gray-600 dark:text-gray-400">Moyenne</p>
-								</div>
-							</div>
-						))}
-						<Link to="/parent/children">
-							<Button variant="outline" className="w-full">
-								<Users className="mr-2 size-4" />
-								{t('common.view')} {t('nav.myChildren')}
-							</Button>
-						</Link>
+								))}
+								<Link to="/parent/children">
+									<Button variant="outline" className="w-full">
+										<Users className="mr-2 size-4" />
+										{t('common.view')} {t('nav.myChildren')}
+									</Button>
+								</Link>
+							</>
+						)}
 					</CardContent>
 				</Card>
-
-				{/* Progress Chart */}
 				<Card>
 					<CardHeader>
 						<CardTitle>{t('dashboard.progress')}</CardTitle>
@@ -109,20 +65,20 @@ export default function ParentDashboard() {
 								<XAxis dataKey="month" />
 								<YAxis />
 								<Tooltip />
-								<Area type="monotone" dataKey="value" stroke="#6366f1" fill="#6366f1" fillOpacity={0.2} />
+								<Area type="monotone" dataKey="progress" stroke="#6366f1" fill="#6366f1" fillOpacity={0.2} />
 							</AreaChart>
 						</ResponsiveContainer>
 					</CardContent>
 				</Card>
-
-				{/* Upcoming Courses */}
 				<Card className="md:col-span-2">
 					<CardHeader>
 						<CardTitle>{t('dashboard.upcomingCourses')}</CardTitle>
 					</CardHeader>
-					<CardContent>
-						<div className="space-y-4">
-							{mockCourses.map((course) => (
+					<CardContent className="space-y-4">
+						{upcomingCourses.length === 0 ? (
+							<div className="text-center text-gray-500 py-8">{t('empty.noCourses', 'No upcoming courses.')}</div>
+						) : (
+							upcomingCourses.map((course) => (
 								<div key={course.id} className="flex items-center justify-between p-4 border rounded-lg">
 									<div className="flex items-center gap-4">
 										<div className="p-3 bg-indigo-100 dark:bg-indigo-900 rounded-lg">
@@ -146,8 +102,8 @@ export default function ParentDashboard() {
 										{t('courses.join')}
 									</Button>
 								</div>
-							))}
-						</div>
+							))
+						)}
 					</CardContent>
 				</Card>
 			</div>

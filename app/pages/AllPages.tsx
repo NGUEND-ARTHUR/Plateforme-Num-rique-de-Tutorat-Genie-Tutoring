@@ -1,7 +1,7 @@
 // This file contains all page components consolidated for easier management
 // Import this file and export individual pages as needed
 
-import { useApp } from '@/contexts/AppContext';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -52,7 +52,7 @@ import { useState } from 'react';
 // ========================================
 
 export function MyChildren() {
-  const { t } = useApp();
+  const { t } = useTranslation();
   const [showAddDialog, setShowAddDialog] = useState(false);
 
   const children = [

@@ -1,4 +1,4 @@
-import { useApp } from '@/contexts/AppContext';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -51,7 +51,7 @@ const messages = [
 ];
 
 export default function ParentMessages() {
-	const { t } = useApp();
+	const { t } = useTranslation();
 	const [newMessage, setNewMessage] = useState('');
 	const [selectedConv, setSelectedConv] = useState(conversations[0]);
 
@@ -61,38 +61,30 @@ export default function ParentMessages() {
 				<h2 className="text-2xl font-semibold mb-1">{t('nav.messages')}</h2>
 				<p className="text-gray-600 dark:text-gray-400">Communiquez avec les tuteurs</p>
 			</div>
-
 			<div className="grid md:grid-cols-3 gap-6 h-[calc(100vh-250px)]">
 				{/* Conversations List */}
-				<Card className="md:col-span-1">
-					<CardHeader>
-						<CardTitle>{t('messages.conversations')}</CardTitle>
-					</CardHeader>
-					<CardContent>
-						<ScrollArea className="h-full">
-							<div className="space-y-2">
-								{conversations.map((conv) => (
-									<div
-										key={conv.id}
-										onClick={() => setSelectedConv(conv)}
-										className={`p-3 rounded-lg cursor-pointer transition-colors ${
-											selectedConv.id === conv.id
-												? 'bg-indigo-50 dark:bg-indigo-900/20'
-												: 'hover:bg-gray-50 dark:hover:bg-gray-800'
-										}`}
-									>
-										<div className="flex items-start gap-3">
+				<div className="md:col-span-1">
+					<Card>
+						<CardHeader>
+							<CardTitle>{t('messages.conversations')}</CardTitle>
+						</CardHeader>
+						<CardContent className="p-0">
+							<ScrollArea className="h-64">
+								{conversations.length === 0 ? (
+									<div className="text-center text-gray-500 py-8">{t('empty.noConversations', 'No conversations yet.')}</div>
+								) : (
+									conversations.map((conv) => (
+										<div
+											key={conv.id}
+											className={`flex items-center gap-3 p-4 border-b cursor-pointer ${selectedConv.id === conv.id ? 'bg-indigo-50 dark:bg-indigo-900/20' : ''}`}
+											onClick={() => setSelectedConv(conv)}
+										>
 											<Avatar>
 												<AvatarFallback>{conv.name.substring(0, 2)}</AvatarFallback>
 											</Avatar>
-											<div className="flex-1 min-w-0">
-												<div className="flex items-center justify-between mb-1">
-													<p className="font-medium truncate">{conv.name}</p>
-													<span className="text-xs text-gray-500">{conv.time}</span>
-												</div>
-												<p className="text-sm text-gray-600 dark:text-gray-400 truncate">
-													{conv.lastMessage}
-												</p>
+											<div className="flex-1">
+												<p className="font-medium">{conv.name}</p>
+												<p className="text-xs text-gray-500">{conv.lastMessage}</p>
 											</div>
 											{conv.unread > 0 && (
 												<div className="size-5 bg-indigo-600 text-white rounded-full flex items-center justify-center text-xs">
@@ -100,73 +92,50 @@ export default function ParentMessages() {
 												</div>
 											)}
 										</div>
-									</div>
-								))}
-							</div>
-						</ScrollArea>
-					</CardContent>
-				</Card>
-
-				{/* Messages */}
-				<Card className="md:col-span-2 flex flex-col">
-					<CardHeader className="border-b">
-						<div className="flex items-center gap-3">
-							<Avatar>
-								<AvatarFallback>{selectedConv.name.substring(0, 2)}</AvatarFallback>
-							</Avatar>
-							<div>
-								<CardTitle>{selectedConv.name}</CardTitle>
-								<p className="text-sm text-gray-600 dark:text-gray-400">{selectedConv.role}</p>
-							</div>
-						</div>
-					</CardHeader>
-					<CardContent className="flex-1 flex flex-col pt-6">
-						<ScrollArea className="flex-1 pr-4 mb-4">
-							<div className="space-y-4">
-								{messages.map((msg) => (
-									<div
-										key={msg.id}
-										className={`flex ${msg.isSent ? 'justify-end' : 'justify-start'}`}
-									>
+									))
+								)}
+							</ScrollArea>
+						</CardContent>
+					</Card>
+				</div>
+				{/* Message Thread */}
+				<div className="md:col-span-2">
+					<Card>
+						<CardHeader>
+							<CardTitle>{selectedConv ? selectedConv.name : t('messages.noConversationSelected', 'No conversation selected')}</CardTitle>
+						</CardHeader>
+						<CardContent>
+							<ScrollArea className="h-64 mb-4">
+								{messages.length === 0 ? (
+									<div className="text-center text-gray-500 py-8">{t('empty.noMessages', 'No messages yet.')}</div>
+								) : (
+									messages.map((msg) => (
 										<div
-											className={`max-w-[70%] ${
-												msg.isSent
-													? 'bg-indigo-600 text-white'
-													: 'bg-gray-100 dark:bg-gray-800'
-											} rounded-lg p-3`}
+											key={msg.id}
+											className={`flex ${msg.isSent ? 'justify-end' : 'justify-start'} mb-2`}
 										>
-											<p className="text-sm">{msg.content}</p>
-											<p
-												className={`text-xs mt-1 ${
-													msg.isSent ? 'text-indigo-200' : 'text-gray-500'
-												}`}
-											>
-												{msg.time}
-											</p>
+											<div className={`rounded-lg px-4 py-2 max-w-xs ${msg.isSent ? 'bg-indigo-100 dark:bg-indigo-900 text-right' : 'bg-gray-100 dark:bg-gray-800'}`}>
+												<p className="text-sm">{msg.content}</p>
+												<p className="text-xs text-gray-400 mt-1">{msg.time}</p>
+											</div>
 										</div>
-									</div>
-								))}
-							</div>
-						</ScrollArea>
-						<div className="flex gap-2">
-							<Input
-								placeholder={t('messages.typeMessage')}
-								value={newMessage}
-								onChange={(e) => setNewMessage(e.target.value)}
-								onKeyPress={(e) => {
-									if (e.key === 'Enter' && newMessage.trim()) {
-										// Send message logic
-										setNewMessage('');
-									}
-								}}
-							/>
-							<Button size="icon">
-								<Send className="size-4" />
-							</Button>
-						</div>
-					</CardContent>
-				</Card>
+									))
+								)}
+							</ScrollArea>
+							<form className="flex gap-2 mt-2">
+								<Input
+									value={newMessage}
+									onChange={(e) => setNewMessage(e.target.value)}
+									placeholder={t('messages.typeMessage')}
+								/>
+								<Button type="submit" size="icon">
+									<Send className="size-4" />
+								</Button>
+							</form>
+						</CardContent>
+					</Card>
+				</div>
 			</div>
-		</div>
-	);
-}
+		   </div>
+	   );
+	}

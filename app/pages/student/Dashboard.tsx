@@ -1,4 +1,4 @@
-import { useApp } from '@/contexts/AppContext';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { BookOpen, Target, Award, Video, Clock } from 'lucide-react';
@@ -21,8 +21,9 @@ function StatCard({ icon: Icon, label, value, color }: { icon: any; label: strin
   );
 }
 
-export default function StudentDashboard() {
-  const { t } = useApp();
+
+export default function Dashboard() {
+  const { t } = useTranslation();
 
   return (
     <div className="space-y-6">

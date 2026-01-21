@@ -1,7 +1,11 @@
+export { StudentObjectivesPage as Objectives };
+export { StudentClassroomPage as VirtualClassroom };
+// Named exports for compatibility with existing imports
+export { StudentCoursesPage as StudentCourses };
 // This file exports all remaining page templates
 // Import and re-export as needed
 
-import { useApp } from '@/contexts/AppContext';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,8 +19,9 @@ import { BookOpen, Users as UsersIcon, Calendar, Video, Target, Clock, CheckCirc
 
 // ========== STUDENT PAGES ==========
 
-export function StudentCourses() {
-  const { t } = useApp();
+
+export function StudentCoursesPage() {
+  const { t } = useTranslation();
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-semibold">{t('nav.courses')}</h2>
@@ -52,8 +57,9 @@ export function StudentCourses() {
   );
 }
 
-export function VirtualClassroom() {
-  const { t } = useApp();
+
+export function StudentClassroomPage() {
+  const { t } = useTranslation();
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
@@ -86,8 +92,8 @@ export function VirtualClassroom() {
   );
 }
 
-export function Objectives() {
-  const { t } = useApp();
+export function StudentObjectivesPage() {
+  const { t } = useTranslation();
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-semibold">{t('nav.objectives')}</h2>
@@ -401,6 +407,32 @@ export function TutorProfile() {
 // ========== ADMIN PAGES ==========
 
 export function AdminDashboard() {
+  // Mock: Replace with real user context and API in production
+  const isInitialAdmin = true; // TODO: Replace with real check
+  const [admins, setAdmins] = React.useState([
+    { id: 1, name: 'Super Admin', email: 'admin@genietutor.com', isInitial: true },
+    { id: 2, name: 'Alice Martin', email: 'alice@genietutor.com', isInitial: false },
+  ]);
+  const [newAdmin, setNewAdmin] = React.useState({ name: '', email: '' });
+  const [error, setError] = React.useState('');
+
+  const handleAddAdmin = (e) => {
+    e.preventDefault();
+    if (!newAdmin.name || !newAdmin.email) {
+      setError('Nom et email requis');
+      return;
+    }
+    setAdmins([
+      ...admins,
+      { id: Date.now(), name: newAdmin.name, email: newAdmin.email, isInitial: false },
+    ]);
+    setNewAdmin({ name: '', email: '' });
+    setError('');
+  };
+  const handleDeleteAdmin = (id) => {
+    setAdmins(admins.filter((a) => a.id !== id));
+  };
+
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-semibold">Dashboard Administrateur</h2>
@@ -419,6 +451,60 @@ export function AdminDashboard() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Admin Management Section */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Gestion des administrateurs</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            <div>
+              <p className="text-gray-600 dark:text-gray-400 mb-2">Seul l'administrateur initial peut ajouter ou supprimer des administrateurs.</p>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Nom</TableHead>
+                    <TableHead>Email</TableHead>
+                    <TableHead>Initial</TableHead>
+                    <TableHead>Actions</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {admins.map((admin) => (
+                    <TableRow key={admin.id}>
+                      <TableCell>{admin.name}</TableCell>
+                      <TableCell>{admin.email}</TableCell>
+                      <TableCell>{admin.isInitial ? <Badge variant="destructive">Initial</Badge> : ''}</TableCell>
+                      <TableCell>
+                        {isInitialAdmin && !admin.isInitial && (
+                          <Button size="sm" variant="ghost" onClick={() => handleDeleteAdmin(admin.id)}>
+                            <Trash2 className="size-4 text-red-500" />
+                          </Button>
+                        )}
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+            {isInitialAdmin && (
+              <form className="flex flex-col md:flex-row gap-2 items-end" onSubmit={handleAddAdmin}>
+                <div className="flex flex-col gap-1">
+                  <Label>Nom</Label>
+                  <Input value={newAdmin.name} onChange={e => setNewAdmin({ ...newAdmin, name: e.target.value })} required />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <Label>Email</Label>
+                  <Input type="email" value={newAdmin.email} onChange={e => setNewAdmin({ ...newAdmin, email: e.target.value })} required />
+                </div>
+                <Button type="submit" className="mt-4 md:mt-0">Ajouter</Button>
+                {error && <span className="text-red-500 ml-2">{error}</span>}
+              </form>
+            )}
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

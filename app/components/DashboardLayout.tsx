@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useApp } from '@/contexts/AppContext';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { ScrollArea } from '@/components/ui/scroll-area';
@@ -11,8 +12,9 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+
+// ...existing code...
 import {
   GraduationCap,
   Home,
@@ -90,12 +92,15 @@ export default function DashboardLayout({ children, role }: { children: React.Re
       : [
           { icon: Home, label: t('nav.dashboard'), path: '/admin/dashboard' },
           { icon: Users, label: t('nav.users'), path: '/admin/users' },
+          { icon: Users, label: t('nav.adminUserManagement', 'User Management'), path: '/admin/user-management' },
+          { icon: BookOpen, label: t('nav.adminClassSubjectManagement', 'Class & Subject Management'), path: '/admin/class-subject-management' },
           { icon: UserPlus, label: t('nav.tutorValidation'), path: '/admin/validation' },
           { icon: Users, label: t('nav.studentsParents'), path: '/admin/students-parents' },
           { icon: BookOpen, label: t('nav.classesSubjects'), path: '/admin/classes' },
           { icon: Calendar, label: t('nav.courses'), path: '/admin/courses' },
           { icon: ClipboardList, label: t('nav.reports'), path: '/admin/reports' },
           { icon: Settings, label: t('nav.systemSettings'), path: '/admin/settings' },
+          { icon: Settings, label: t('nav.userSettings', 'User Settings'), path: '/admin/user-settings' },
         ];
 
   const isActive = (path: string) => location.pathname === path;
