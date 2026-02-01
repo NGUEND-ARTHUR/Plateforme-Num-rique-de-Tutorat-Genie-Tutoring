@@ -5,7 +5,9 @@ export { StudentCoursesPage as StudentCourses };
 // This file exports all remaining page templates
 // Import and re-export as needed
 
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useApp } from '@/contexts/AppContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -319,7 +321,8 @@ export function TutorCourses() {
 }
 
 export function TutorClassroom() {
-  return <VirtualClassroom />;
+  // Use the student classroom implementation directly to avoid relying on an export alias
+  return <StudentClassroomPage />;
 }
 
 export function PedagogicalTracking() {
@@ -545,6 +548,48 @@ export function Users() {
 }
 
 export function TutorValidation() {
+  const [pending, setPending] = React.useState<Array<any>>([]);
+
+  React.useEffect(() => {
+    const key = 'genie-pending-tutors';
+    const raw = localStorage.getItem(key);
+    const arr = raw ? JSON.parse(raw) : [];
+    setPending(arr);
+  }, []);
+
+  const save = (next) => {
+    localStorage.setItem('genie-pending-tutors', JSON.stringify(next));
+    setPending(next);
+  };
+
+  const handleApprove = (id: string) => {
+    const next = pending.map((p) => (p.id === id ? { ...p, verificationStatus: 'VERIFIED' } : p));
+    save(next);
+  };
+
+  const handleReject = (id: string) => {
+    const reason = prompt('Raison du rejet (optionnel)');
+    const next = pending.map((p) => (p.id === id ? { ...p, verificationStatus: 'REJECTED', rejectionReason: reason } : p));
+    save(next);
+  };
+
+  const handleDownload = (file) => {
+    try {
+      const blob = fetch(file.content).then((r) => r.blob()).then((b) => {
+        const url = URL.createObjectURL(b);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = file.name;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <div className="space-y-6">
       <h2 className="text-2xl font-semibold">Validation des tuteurs</h2>
@@ -553,29 +598,48 @@ export function TutorValidation() {
           <CardTitle>Tuteurs en attente de validation</CardTitle>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Nom</TableHead>
-                <TableHead>Matières</TableHead>
-                <TableHead>Expérience</TableHead>
-                <TableHead>Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell>Pierre Rousseau</TableCell>
-                <TableCell>Anglais, Histoire</TableCell>
-                <TableCell>2 ans</TableCell>
-                <TableCell>
-                  <div className="flex gap-2">
-                    <Button size="sm" variant="outline"><Eye className="size-4" /></Button>
-                    <Button size="sm"><CheckCircle2 className="size-4 mr-1" />Valider</Button>
-                  </div>
-                </TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
+          {pending.length === 0 ? (
+            <p className="text-gray-600">Aucun tuteur en attente.</p>
+          ) : (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Nom</TableHead>
+                  <TableHead>Email</TableHead>
+                  <TableHead>Statut</TableHead>
+                  <TableHead>Actions</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {pending.map((p) => (
+                  <TableRow key={p.id}>
+                    <TableCell>{p.name}</TableCell>
+                    <TableCell>{p.email}</TableCell>
+                    <TableCell>{p.verificationStatus}</TableCell>
+                    <TableCell>
+                      <div className="flex gap-2">
+                        {p.documents && p.documents.length > 0 && (
+                          <div className="flex items-center gap-1">
+                            {p.documents.map((f, i) => (
+                              <Button key={i} size="sm" variant="outline" onClick={() => handleDownload(f)}>
+                                <Download className="size-4 mr-1" />{f.name}
+                              </Button>
+                            ))}
+                          </div>
+                        )}
+                        <Button size="sm" variant="ghost" onClick={() => handleApprove(p.id)}>
+                          <CheckCircle2 className="size-4 mr-1" />Valider
+                        </Button>
+                        <Button size="sm" variant="destructive" onClick={() => handleReject(p.id)}>
+                          Rejeter
+                        </Button>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          )}
         </CardContent>
       </Card>
     </div>

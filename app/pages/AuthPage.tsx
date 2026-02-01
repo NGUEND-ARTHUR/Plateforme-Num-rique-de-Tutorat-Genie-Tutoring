@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useSearchParams, useLocation } from 'react-router-dom';
 import { useApp } from '@/contexts/AppContext';
 import { useTranslation } from 'react-i18next';
@@ -33,22 +33,22 @@ const ROLE_CONFIG = {
 };
 
 export default function AuthPage(props) {
-    // Helper for sign up link
-    const signUpLink = (
-      <span>
-        {t('auth.noAccount')}{' '}
-        <Button
-          variant="link"
-          className="p-0 h-auto"
-          onClick={() => navigate('/register')}
-        >
-          {t('auth.signUp')}
-        </Button>
-      </span>
-    );
   const { login } = useApp();
   const { t } = useTranslation();
   const navigate = useNavigate();
+  // Helper for sign up link (defined after hooks to avoid temporal dead zone)
+  const signUpLink = (
+    <span>
+      {t('auth.noAccount')}{' '}
+      <Button
+        variant="link"
+        className="p-0 h-auto"
+        onClick={() => navigate('/register')}
+      >
+        {t('auth.signUp')}
+      </Button>
+    </span>
+  );
   const [searchParams] = useSearchParams();
   const location = useLocation();
   const type = location.pathname.includes('/register') ? 'register' : 'login';
@@ -62,11 +62,64 @@ export default function AuthPage(props) {
     name: '',
     phone: '',
   });
+  const [uploadedDocs, setUploadedDocs] = useState([] as Array<{ name: string; content: string }>);
+  const [availableParents, setAvailableParents] = useState<Array<any>>([]);
+  const [selectedParentId, setSelectedParentId] = useState<string | null>(null);
+  const [newParent, setNewParent] = useState({ name: '', email: '', phone: '' });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Simulate login
+
+    // If registering as tutor, persist uploaded documents into pending tutors list
+      if (selectedRole === 'tutor' && location.pathname.includes('/register')) {
+      const pendingKey = 'genie-pending-tutors';
+      const existing = localStorage.getItem(pendingKey);
+      const pending = existing ? JSON.parse(existing) : [];
+
+      const tutorRecord = {
+        id: `tutor_${Date.now()}`,
+        name: formData.name || 'Tuteur Test',
+        email: formData.email,
+        phone: formData.phone,
+        role: 'tutor',
+        verificationStatus: 'PENDING_VERIFICATION',
+        documents: uploadedDocs,
+        createdAt: new Date().toISOString(),
+      };
+
+      pending.push(tutorRecord);
+      localStorage.setItem(pendingKey, JSON.stringify(pending));
+
+      // Log the tutor in locally with pending status
+      login({ id: tutorRecord.id, name: tutorRecord.name, email: tutorRecord.email, role: 'tutor', verificationStatus: tutorRecord.verificationStatus });
+      navigate('/tutor/dashboard');
+      return;
+    }
+
+    // If registering as student, persist student and link to parent if provided
+    if (selectedRole === 'student' && location.pathname.includes('/register')) {
+      const key = 'genie-students';
+      const existing = localStorage.getItem(key);
+      const arr = existing ? JSON.parse(existing) : [];
+      const studentRecord = {
+        id: `student_${Date.now()}`,
+        name: formData.name || 'Étudiant Test',
+        email: formData.email,
+        phone: formData.phone,
+        role: 'student',
+        parentId: selectedParentId,
+        createdAt: new Date().toISOString(),
+      };
+      arr.push(studentRecord);
+      localStorage.setItem(key, JSON.stringify(arr));
+
+      // Log the student in locally
+      login({ id: studentRecord.id, name: studentRecord.name, email: studentRecord.email, role: 'student' });
+      navigate('/student/dashboard');
+      return;
+    }
+
+    // Simulate login for other roles
     const mockUser = {
       id: '1',
       name: formData.name || 'Utilisateur Test',
@@ -74,13 +127,34 @@ export default function AuthPage(props) {
       role: selectedRole,
       avatar: '',
     };
-    
+
     login(mockUser);
     navigate(`/${selectedRole}/dashboard`);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  React.useEffect(() => {
+    const raw = localStorage.getItem('genie-parents');
+    const list = raw ? JSON.parse(raw) : [];
+    setAvailableParents(list);
+    if (list.length > 0 && !selectedParentId) setSelectedParentId(list[0].id);
+  }, []);
+
+  const handleAddParent = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    if (!newParent.name || !newParent.email) return;
+    const key = 'genie-parents';
+    const existing = localStorage.getItem(key);
+    const arr = existing ? JSON.parse(existing) : [];
+    const record = { id: `parent_${Date.now()}`, ...newParent };
+    arr.push(record);
+    localStorage.setItem(key, JSON.stringify(arr));
+    setAvailableParents(arr);
+    setSelectedParentId(record.id);
+    setNewParent({ name: '', email: '', phone: '' });
   };
 
   return (
@@ -200,6 +274,71 @@ export default function AuthPage(props) {
                     onChange={handleChange}
                   />
                 </div>
+                {/* Tutor-specific uploads */}
+                {selectedRole === 'tutor' && (
+                  <div className="space-y-2">
+                    <Label htmlFor="tutorDocs">Documents pour validation (CV, pièce d'identité)</Label>
+                      <input
+                        id="tutorDocs"
+                        aria-label="Documents pour validation"
+                        title="Documents pour validation (CV, pièce d'identité)"
+                        type="file"
+                        multiple
+                        onChange={async (e: React.ChangeEvent<HTMLInputElement>) => {
+                          const files = e.target.files;
+                          if (!files) return;
+                          const arr = [] as Array<{ name: string; content: string }>;
+                          for (let i = 0; i < files.length; i++) {
+                            const f = files[i];
+                            const data = await new Promise<string>((res) => {
+                              const reader = new FileReader();
+                              reader.onload = () => res(String(reader.result));
+                              reader.readAsDataURL(f);
+                            });
+                            arr.push({ name: f.name, content: data });
+                          }
+                          setUploadedDocs(arr);
+                        }}
+                      />
+                    {uploadedDocs.length > 0 && (
+                      <ul className="text-sm mt-2">
+                        {uploadedDocs.map((d) => (
+                          <li key={d.name}>{d.name}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                )}
+                {/* Student parent-link UI */}
+                {selectedRole === 'student' && (
+                  <div className="space-y-3">
+                    <Label>Associer un parent</Label>
+                    {availableParents.length > 0 ? (
+                      <div className="flex gap-2 items-center">
+                        <select id="parentSelect" title="Sélectionner un parent" aria-label="Sélectionner un parent" value={selectedParentId || ''} onChange={(e) => setSelectedParentId(e.target.value)} className="border rounded p-2">
+                          {availableParents.map((p) => (
+                            <option key={p.id} value={p.id}>{p.name} — {p.email}</option>
+                          ))}
+                        </select>
+                        <span className="text-sm text-gray-500">ou</span>
+                        <button type="button" className="underline text-sm" onClick={() => setSelectedParentId(null)}>Ajouter un nouveau parent</button>
+                      </div>
+                    ) : (
+                      <p className="text-sm text-gray-600">Aucun parent trouvé — ajoutez-en un ci-dessous.</p>
+                    )}
+
+                    {selectedParentId === null && (
+                      <form onSubmit={handleAddParent} className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <Input placeholder="Nom du parent" value={newParent.name} onChange={(e) => setNewParent({ ...newParent, name: e.target.value })} required />
+                        <Input placeholder="Email du parent" type="email" value={newParent.email} onChange={(e) => setNewParent({ ...newParent, email: e.target.value })} required />
+                        <div className="flex gap-2">
+                          <Input placeholder="Téléphone" value={newParent.phone} onChange={(e) => setNewParent({ ...newParent, phone: e.target.value })} />
+                          <Button type="submit">Ajouter</Button>
+                        </div>
+                      </form>
+                    )}
+                  </div>
+                )}
               </>
             )}
 

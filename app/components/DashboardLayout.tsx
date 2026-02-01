@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useApp } from '@/contexts/AppContext';
-import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import {
   DropdownMenu,
+  DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
@@ -49,7 +49,13 @@ export default function DashboardLayout({ children, role }: { children: React.Re
   const { t, currentUser, logout, language, setLanguage, theme, setTheme } = useApp();
   const location = useLocation();
   const navigate = useNavigate();
-  const isMobile = window.innerWidth < 768;
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   const handleLogout = () => {
     logout();
@@ -92,15 +98,15 @@ export default function DashboardLayout({ children, role }: { children: React.Re
       : [
           { icon: Home, label: t('nav.dashboard'), path: '/admin/dashboard' },
           { icon: Users, label: t('nav.users'), path: '/admin/users' },
-          { icon: Users, label: t('nav.adminUserManagement', 'User Management'), path: '/admin/user-management' },
-          { icon: BookOpen, label: t('nav.adminClassSubjectManagement', 'Class & Subject Management'), path: '/admin/class-subject-management' },
+          { icon: Users, label: t('nav.users'), path: '/admin/user-management' },
+          { icon: BookOpen, label: t('nav.classesSubjects'), path: '/admin/class-subject-management' },
           { icon: UserPlus, label: t('nav.tutorValidation'), path: '/admin/validation' },
           { icon: Users, label: t('nav.studentsParents'), path: '/admin/students-parents' },
           { icon: BookOpen, label: t('nav.classesSubjects'), path: '/admin/classes' },
           { icon: Calendar, label: t('nav.courses'), path: '/admin/courses' },
           { icon: ClipboardList, label: t('nav.reports'), path: '/admin/reports' },
           { icon: Settings, label: t('nav.systemSettings'), path: '/admin/settings' },
-          { icon: Settings, label: t('nav.userSettings', 'User Settings'), path: '/admin/user-settings' },
+          { icon: Settings, label: t('nav.settings'), path: '/admin/user-settings' },
         ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -115,17 +121,17 @@ export default function DashboardLayout({ children, role }: { children: React.Re
         </div>
         <ScrollArea className="flex-1">
           <nav className="p-4 space-y-1">
-            {navItems.map((item) => (
-              <Link key={item.path} to={item.path}>
-                <Button
-                  variant={isActive(item.path) ? 'default' : 'ghost'}
-                  className="w-full justify-start"
-                >
-                  <item.icon className="mr-2 size-5" />
-                  {item.label}
-                </Button>
-              </Link>
-            ))}
+              {navItems.map((item) => (
+                <Link key={item.path} to={item.path}>
+                  <Button
+                    variant={isActive(item.path) ? 'default' : 'ghost'}
+                    className="w-full justify-start text-left"
+                  >
+                    <item.icon className="mr-2 size-5" />
+                    <span className="truncate">{item.label}</span>
+                  </Button>
+                </Link>
+              ))}
             <Separator className="my-4" />
             <Button
               variant="ghost"
@@ -171,10 +177,10 @@ export default function DashboardLayout({ children, role }: { children: React.Re
                 >
                   <Button
                     variant={isActive(item.path) ? 'default' : 'ghost'}
-                    className="w-full justify-start"
+                    className="w-full justify-start text-left"
                   >
                     <item.icon className="mr-2 size-5" />
-                    {item.label}
+                    <span className="truncate">{item.label}</span>
                   </Button>
                 </Link>
               ))}
@@ -281,7 +287,7 @@ export default function DashboardLayout({ children, role }: { children: React.Re
                   className="flex-col h-auto py-2 px-3"
                 >
                   <item.icon className="size-5 mb-1" />
-                  <span className="text-xs">{item.label.split(' ')[0]}</span>
+                  <span className="text-xs truncate max-w-[64px] block text-center">{item.label}</span>
                 </Button>
               </Link>
             ))}

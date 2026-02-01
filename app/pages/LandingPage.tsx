@@ -61,7 +61,7 @@ export default function LandingPage() {
                 {t('landing.cta.parent')}
               </Button>
             </Link>
-            <Link to="/login?role=student">
+            <Link to="/register?role=student">
               <Button size="lg" variant="outline">
                 <GraduationCap className="mr-2 size-5" />
                 {t('landing.cta.student')}
@@ -73,7 +73,7 @@ export default function LandingPage() {
                 {t('landing.cta.tutor')}
               </Button>
             </Link>
-            <Link to="/login?role=admin">
+            <Link to="/register?role=admin">
               <Button size="lg" variant="outline">
                 <GraduationCap className="mr-2 size-5" />
                 {t('landing.cta.admin')}

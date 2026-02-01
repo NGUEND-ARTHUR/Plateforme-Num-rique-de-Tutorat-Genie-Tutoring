@@ -46,6 +46,7 @@ import {
   MapPin,
 } from 'lucide-react';
 import { useState } from 'react';
+import { useApp } from '@/contexts/AppContext';
 
 // ========================================
 // PARENT PAGES

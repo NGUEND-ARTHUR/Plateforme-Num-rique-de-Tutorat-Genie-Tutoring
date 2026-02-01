@@ -1,7 +1,12 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { User } from '@/app/types';
+import i18n from '../i18n';
+
+type Language = 'en' | 'fr';
 
 interface AppContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
   theme: 'light' | 'dark';
   setTheme: (theme: 'light' | 'dark') => void;
   currentUser: User | null;
@@ -57,7 +62,7 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export function AppProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>(() => {
     const saved = localStorage.getItem('genie-lang');
-    return (saved as Language) || 'fr';
+    return (saved as Language) || (i18n.language as Language) || 'fr';
   });
   
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -72,6 +77,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     localStorage.setItem('genie-lang', language);
+    if (i18n && typeof i18n.changeLanguage === 'function') {
+      i18n.changeLanguage(language).catch(() => {});
+    }
   }, [language]);
 
   useEffect(() => {
@@ -94,7 +102,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
   };
 
   const t = (key: string): string => {
-    return translations[language][key] || key;
+    try {
+      return i18n.t(key);
+    } catch (e) {
+      return translations[language]?.[key] || key;
+    }
   };
 
   return (

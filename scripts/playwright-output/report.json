@@ -1,0 +1,787 @@
+[
+  {
+    "role": "anon",
+    "items": [
+      {
+        "path": "*",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/class-subject-management",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/classes",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/students-parents",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/user-management",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/user-settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/users",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/validation",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/login",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/children",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/schedule",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/tutors",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/register",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/classroom",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/grades",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/objectives",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/classroom",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/profile",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/students",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/tracking",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      }
+    ]
+  },
+  {
+    "role": "student",
+    "items": [
+      {
+        "path": "*",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/class-subject-management",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/classes",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/students-parents",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/user-management",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/user-settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/users",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/validation",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/login",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/children",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/schedule",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/tutors",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/register",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/classroom",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/grades",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/objectives",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/classroom",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/profile",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/students",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/tracking",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      }
+    ]
+  },
+  {
+    "role": "parent",
+    "items": [
+      {
+        "path": "*",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/class-subject-management",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/classes",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/students-parents",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/user-management",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/user-settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/users",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/validation",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/login",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/children",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/schedule",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/tutors",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/register",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/classroom",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/grades",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/objectives",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/classroom",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/profile",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/students",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/tracking",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      }
+    ]
+  },
+  {
+    "role": "tutor",
+    "items": [
+      {
+        "path": "*",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/class-subject-management",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/classes",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/students-parents",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/user-management",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/user-settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/users",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/validation",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/login",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/children",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/schedule",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/tutors",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/register",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/classroom",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/grades",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/objectives",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/classroom",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/profile",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/students",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/tracking",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      }
+    ]
+  },
+  {
+    "role": "admin",
+    "items": [
+      {
+        "path": "*",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/class-subject-management",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/classes",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/students-parents",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/user-management",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/user-settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/users",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/admin/validation",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/login",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/children",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/schedule",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/parent/tutors",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/register",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/classroom",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/grades",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/objectives",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/student/settings",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/classroom",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/courses",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/dashboard",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/messages",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/profile",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/reports",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/students",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      },
+      {
+        "path": "/tutor/tracking",
+        "error": "page.goto: net::ERR_CONNECTION_REFUSED at http://localhost:5173/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:5173/\", waiting until \"networkidle\"\u001b[22m\n"
+      }
+    ]
+  }
+]

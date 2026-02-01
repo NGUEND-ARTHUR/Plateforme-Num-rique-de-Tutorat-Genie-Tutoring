@@ -3,6 +3,7 @@ import AdminClassSubjectManagement from '@/pages/admin/AdminClassSubjectManageme
 import UserSettings from '@/pages/UserSettings';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider, useApp } from '@/contexts/AppContext';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 // Pages
 import LandingPage from '@/pages/LandingPage';
@@ -65,8 +66,9 @@ function ProtectedRoute({ children, allowedRoles }: { children: React.ReactNode;
 function App() {
   return (
     <AppProvider>
-      <BrowserRouter>
-        <Routes>
+      <ErrorBoundary>
+        <BrowserRouter>
+          <Routes>
           {/* Public Routes */}
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<AuthPage type="login" />} />
@@ -330,6 +332,36 @@ function App() {
             }
           />
           <Route
+            path="/admin/user-management"
+            element={
+              <ProtectedRoute allowedRoles={["admin"]}>
+                <DashboardLayout role="admin">
+                  <AdminUserManagement />
+                </DashboardLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/class-subject-management"
+            element={
+              <ProtectedRoute allowedRoles={["admin"]}>
+                <DashboardLayout role="admin">
+                  <AdminClassSubjectManagement />
+                </DashboardLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/user-settings"
+            element={
+              <ProtectedRoute allowedRoles={["admin"]}>
+                <DashboardLayout role="admin">
+                  <Users />
+                </DashboardLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/admin/validation"
             element={
               <ProtectedRoute allowedRoles={['admin']}>
@@ -392,8 +424,9 @@ function App() {
 
           {/* Fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </BrowserRouter>
+          </Routes>
+        </BrowserRouter>
+      </ErrorBoundary>
     </AppProvider>
   );
 }
